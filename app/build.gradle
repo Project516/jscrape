@@ -3,6 +3,10 @@ plugins {
     id 'application'
 
     id 'com.gradleup.shadow' version '9.4.2'
+    id 'com.diffplug.spotless' version '8.6.0'
+
+    // future use of javafx for gui
+    //id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 repositories {
@@ -19,7 +23,7 @@ dependencies {
     // This dependency is used by the application.
     implementation libs.guava
 
-    // jsoup HTML parser library @ https://jsoup.org/  
+    // jsoup HTML parser library @ https://jsoup.org/
     implementation 'org.jsoup:jsoup:1.22.2'
 }
 
@@ -29,6 +33,15 @@ java {
         languageVersion = JavaLanguageVersion.of(25)
     }
 }
+
+// future javafx config
+/*
+javafx {
+    version = "26.0.1"
+    modules = ['javafx.controls']
+}
+
+*/
 
 application {
     // Define the main class for the application.
@@ -51,4 +64,28 @@ jar {
 
 run {
     standardInput = System.in
+}
+
+// spotless config
+compileJava.dependsOn spotlessApply
+spotless {
+    java {
+        importOrder()
+        removeUnusedImports()
+        palantirJavaFormat()
+        formatAnnotations()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+    groovyGradle {
+        leadingTabsToSpaces(4)
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+    format 'misc', {
+        target  '**/*.md', '**/.gitignore'
+        trimTrailingWhitespace()
+        leadingTabsToSpaces(2)
+        endWithNewline()
+    }
 }

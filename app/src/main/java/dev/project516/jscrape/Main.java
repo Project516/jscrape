@@ -1,17 +1,24 @@
 package dev.project516.jscrape;
 
 import dev.project516.jscrape.utils.Parse;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        String url;
+
         Parse parse = new Parse();
 
-        System.out.println(parse.scrape("https://quotes.toscrape.com/"));
+        System.out.print("Enter site url: https://");
 
-        //System.out.println("Hello, World");
+        Scanner scan = new Scanner(System.in);
 
+        url = scan.nextLine();
 
+        System.out.println(parse.scrape("https://" + url));
+
+        scan.close();
     }
 }
