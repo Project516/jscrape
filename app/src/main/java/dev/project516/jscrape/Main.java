@@ -11,13 +11,22 @@ public class Main {
 
         Parse parse = new Parse();
 
-        System.out.print("Enter site url: https://");
-
         Scanner scan = new Scanner(System.in);
 
-        url = scan.nextLine();
+        while (true) {
 
-        System.out.println(parse.scrape("https://" + url));
+            System.out.print("Enter site url: ");
+
+            url = scan.nextLine();
+
+            if (url.equalsIgnoreCase("exit") || url.equalsIgnoreCase("quit")) {
+                break;
+            } else if (!url.startsWith("http")) {
+                url = "https://" + url;
+            }
+
+            System.out.println(parse.scrape(url));
+        }
 
         scan.close();
     }

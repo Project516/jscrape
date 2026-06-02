@@ -3,8 +3,6 @@ package dev.project516.jscrape.utils;
 import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 public class Parse {
 
@@ -19,13 +17,7 @@ public class Parse {
                     .timeout(10_000)
                     .get();
 
-            Elements quotesList = doc.select("span.text");
-
-            StringBuilder sb = new StringBuilder();
-            for (Element element : quotesList) {
-                sb.append(element.text()).append("\n");
-            }
-            quotes = sb.toString().trim();
+            quotes = doc.text();
 
         } catch (IOException e) {
             System.err.println("Failed to fetch: " + e.getMessage());
