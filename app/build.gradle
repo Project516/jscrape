@@ -4,9 +4,7 @@ plugins {
 
     id 'com.gradleup.shadow' version '9.4.2'
     id 'com.diffplug.spotless' version '8.6.0'
-
-    // future use of javafx for gui
-    //id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 repositories {
@@ -34,14 +32,11 @@ java {
     }
 }
 
-// future javafx config
-/*
 javafx {
     version = "26.0.1"
     modules = ['javafx.controls']
 }
 
-*/
 
 application {
     // Define the main class for the application.

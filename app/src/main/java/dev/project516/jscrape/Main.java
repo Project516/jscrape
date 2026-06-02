@@ -1,5 +1,6 @@
 package dev.project516.jscrape;
 
+import dev.project516.jscrape.screen.Launcher;
 import dev.project516.jscrape.utils.Parse;
 import java.util.Scanner;
 
@@ -13,19 +14,30 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        while (true) {
+        if (args.length == 0) {
+            while (true) {
 
-            System.out.print("Enter site url: ");
+                System.out.print("Enter site url: ");
 
-            url = scan.nextLine();
+                url = scan.nextLine();
 
-            if (url.equalsIgnoreCase("exit") || url.equalsIgnoreCase("quit")) {
-                break;
-            } else if (!url.startsWith("http")) {
-                url = "https://" + url;
+                if (url.equalsIgnoreCase("exit") || url.equalsIgnoreCase("quit")) {
+                    break;
+                } else if (!url.startsWith("http")) {
+                    url = "https://" + url;
+                }
+
+                System.out.println(parse.scrape(url));
             }
+        }
 
-            System.out.println(parse.scrape(url));
+        if (args[0].equalsIgnoreCase("--help")) {
+            System.out.println("Available commands:\n--gui : Run app in GUI mode\n");
+        }
+
+        if (args[0].equalsIgnoreCase("--gui")) {
+            Launcher launcher = new Launcher();
+            Launcher.launch();
         }
 
         scan.close();
