@@ -8,7 +8,12 @@ public class Parse {
 
     public String scrape(String URL) {
 
-        String quotes = "";
+        String content = "";
+
+        if (URL.isBlank() || URL.equals("https://") || URL.equals("https:// ")) {
+            content = "Empty URL!";
+            return content;
+        }
 
         try {
 
@@ -17,12 +22,12 @@ public class Parse {
                     .timeout(10_000)
                     .get();
 
-            quotes = doc.text();
+            content = doc.text();
 
         } catch (IOException e) {
             System.err.println("Failed to fetch: " + e.getMessage());
         }
 
-        return quotes;
+        return content;
     }
 }

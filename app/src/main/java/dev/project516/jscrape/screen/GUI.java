@@ -34,7 +34,7 @@ public class GUI extends Application {
             String userInput = urlField.getText();
 
             if (!userInput.startsWith("http")) {
-                userInput = "http://" + userInput;
+                userInput = "https://" + userInput;
             }
 
             String scrapedText = parser.scrape(userInput);
