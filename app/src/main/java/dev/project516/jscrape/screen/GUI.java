@@ -2,6 +2,7 @@ package dev.project516.jscrape.screen;
 
 import dev.project516.jscrape.utils.Parse;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,15 +32,22 @@ public class GUI extends Application {
         Parse parser = new Parse();
 
         startButton.setOnAction(event -> {
-            String userInput = urlField.getText();
+            startButton.setDisable(true);
+            new Thread(() -> {
+                        String userInput = urlField.getText();
 
-            if (!userInput.startsWith("http")) {
-                userInput = "https://" + userInput;
-            }
+                        if (!userInput.startsWith("http")) {
+                            userInput = "https://" + userInput;
+                        }
 
-            String scrapedText = parser.scrape(userInput);
+                        String scrapedText = parser.scrape(userInput);
 
-            resultArea.setText(scrapedText);
+                        Platform.runLater(() -> {
+                            resultArea.setText(scrapedText);
+                            startButton.setDisable(false);
+                        });
+                    })
+                    .start();
         });
 
         Scene scene = new Scene(rootLayout, 600, 400);
