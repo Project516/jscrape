@@ -26,6 +26,8 @@ public class Parse {
 
         } catch (IOException e) {
             System.err.println("Failed to fetch: " + e.getMessage());
+            content = "Failed to fetch - check your URL!";
+            return content;
         }
 
         return content;
