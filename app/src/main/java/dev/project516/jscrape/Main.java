@@ -22,6 +22,7 @@ public class Main {
                 url = scan.nextLine();
 
                 if (url.equalsIgnoreCase("exit") || url.equalsIgnoreCase("quit")) {
+                    scan.close();
                     return;
                 } else if (!url.startsWith("http")) {
                     url = "https://" + url;
@@ -34,7 +35,6 @@ public class Main {
         if (args[0].equalsIgnoreCase("--help")) {
             System.out.println("Available commands:\n--gui : Run app in GUI mode\n");
         } else if (args[0].equalsIgnoreCase("--gui")) {
-            Launcher launcher = new Launcher();
             Launcher.launch();
         } else {
             System.out.println("Unknown command. Use --help to see available commands");
