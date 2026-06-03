@@ -1,6 +1,6 @@
 package dev.project516.jscrape.screen;
 
-import dev.project516.jscrape.utils.Parse;
+import dev.project516.jscrape.utils.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -19,6 +19,7 @@ public class GUI extends Application {
         urlField.setPromptText("Enter website URL here...");
 
         Button startButton = new Button("Start");
+        Button saveButton = new Button("Save to File");
 
         TextArea resultArea = new TextArea();
         resultArea.setWrapText(true);
@@ -26,7 +27,7 @@ public class GUI extends Application {
 
         VBox rootLayout = new VBox(15);
 
-        rootLayout.getChildren().addAll(urlField, startButton, resultArea);
+        rootLayout.getChildren().addAll(urlField, startButton, resultArea, saveButton);
         rootLayout.setPadding(new Insets(20));
 
         Parse parser = new Parse();
@@ -45,9 +46,17 @@ public class GUI extends Application {
                         Platform.runLater(() -> {
                             resultArea.setText(scrapedText);
                             startButton.setDisable(false);
+                            saveButton.setDisable(false);
                         });
                     })
                     .start();
+        });
+
+        saveButton.setOnAction(event -> {
+            String textToSave = resultArea.getText();
+            String fileName = urlField.getText();
+
+            Save.saveFile(fileName, textToSave);
         });
 
         Scene scene = new Scene(rootLayout, 600, 400);
@@ -57,5 +66,7 @@ public class GUI extends Application {
         primaryStage.setTitle("JScrape GUI");
 
         primaryStage.show();
+
+        saveButton.setDisable(true);
     }
 }
