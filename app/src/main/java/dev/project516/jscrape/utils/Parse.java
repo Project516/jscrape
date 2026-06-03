@@ -1,6 +1,5 @@
 package dev.project516.jscrape.utils;
 
-import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -24,7 +23,7 @@ public class Parse {
 
             content = doc.text();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Failed to fetch: " + e.getMessage());
             content = "Failed to fetch - check your URL!";
             return content;
