@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version: '21' # Replace with Java version 
+          java-version: '25'
 
       - name: Generate JavaDoc
         run: ./gradlew javadoc
@@ -30,4 +30,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/docs/javadoc
+          publish_dir: ./app/build/docs/javadoc
