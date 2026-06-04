@@ -21,6 +21,7 @@ public class GUI extends Application {
 
         Button startButton = new Button("Start");
         Button saveButton = new Button("Save to File");
+        saveButton.setPrefWidth(150);
 
         TextArea resultArea = new TextArea();
         resultArea.setWrapText(true);
@@ -63,10 +64,13 @@ public class GUI extends Application {
         });
 
         saveButton.setOnAction(event -> {
-            String textToSave = resultArea.getText();
-            String fileName = nameSaveFile.getText();
+            new Thread(() -> {
+                        String textToSave = resultArea.getText();
+                        String fileName = nameSaveFile.getText();
 
-            Save.saveFile(fileName, textToSave);
+                        Save.saveFile(fileName, textToSave);
+                    })
+                    .start();
 
             saveLayout.setDisable(true);
         });
