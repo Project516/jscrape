@@ -10,28 +10,31 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String url;
-
         Parse parse = new Parse();
 
-        Scanner scan = new Scanner(System.in);
-
         if (args.length == 0) {
+            Scanner scan = new Scanner(System.in);
             while (true) {
 
                 System.out.print("Enter site url: ");
-
-                url = scan.nextLine();
+                String url = scan.nextLine();
 
                 if (url.equalsIgnoreCase("exit") || url.equalsIgnoreCase("quit")) {
-                    scan.close();
-                    return;
-                } else if (!url.startsWith("http")) {
+                    break;
+                }
+
+                if (url.isBlank()) {
+                    continue;
+                }
+
+                if (!url.startsWith("http")) {
                     url = "https://" + url;
                 }
 
                 System.out.println(parse.scrape(url));
             }
+            scan.close();
+            return;
         }
 
         if (args[0].equalsIgnoreCase("--help")) {
@@ -41,7 +44,5 @@ public class Main {
         } else {
             System.out.println("Unknown command. Use --help to see available commands");
         }
-
-        scan.close();
     }
 }
