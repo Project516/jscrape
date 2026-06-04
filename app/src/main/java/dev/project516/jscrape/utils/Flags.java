@@ -14,4 +14,8 @@ public class Flags {
         System.out.println("    java -jar jscrape.jar <url> --save        Scrape and auto-save");
         System.out.println("    java -jar jscrape.jar <url> --save <file> Scrape and save to a custom file location");
     }
+
+    public static void printVersion() {
+        System.out.println("jscrape: Version 1.0.0\n");
+    }
 }

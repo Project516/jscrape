@@ -1,9 +1,11 @@
 package dev.project516.jscrape;
 
 import static dev.project516.jscrape.utils.Flags.printHelp;
+import static dev.project516.jscrape.utils.Flags.printVersion;
 
 import dev.project516.jscrape.screen.Launcher;
 import dev.project516.jscrape.utils.Parse;
+import dev.project516.jscrape.utils.Save;
 import java.util.Scanner;
 
 public class Main {
@@ -37,12 +39,43 @@ public class Main {
             return;
         }
 
+        String firstArg = args[0];
+
         if (args[0].equalsIgnoreCase("--help")) {
             printHelp();
+            return;
         } else if (args[0].equalsIgnoreCase("--gui")) {
             Launcher.launch();
+            return;
+        } else if (args[0].equalsIgnoreCase("--version")) {
+            printVersion();
+            return;
+        }
+
+        String url = firstArg;
+        if (!url.startsWith("http")) {
+            url = "https://" + url;
+        }
+
+        String scrapedText = parse.scrape(url);
+
+        boolean shouldSave = false;
+        String fileName = "saves/" + url; // needs testing
+
+        for (int i = 1; i < args.length; i++) {
+            if (args[i].equalsIgnoreCase("--save")) {
+                shouldSave = true;
+                if (i + 1 < args.length && !args[++i].startsWith("-")) {
+                    fileName = args[i + 1];
+                }
+                break;
+            }
+        }
+
+        if (shouldSave) {
+            Save.saveFile(fileName, scrapedText);
         } else {
-            System.out.println("Unknown command. Use --help to see available commands");
+            System.out.println(scrapedText);
         }
     }
 }
