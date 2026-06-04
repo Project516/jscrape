@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -26,9 +27,17 @@ public class GUI extends Application {
         resultArea.setEditable(false);
         resultArea.setPromptText("Output will appear here");
 
+        TextField nameSaveFile = new TextField();
+        nameSaveFile.setPromptText("Enter the name of the save file");
+        nameSaveFile.setPrefWidth(500);
+
+        HBox saveLayout = new HBox();
+        saveLayout.setDisable(true);
+        saveLayout.getChildren().addAll(saveButton, nameSaveFile);
+
         VBox rootLayout = new VBox(15);
 
-        rootLayout.getChildren().addAll(urlField, startButton, resultArea, saveButton);
+        rootLayout.getChildren().addAll(urlField, startButton, resultArea, saveLayout);
         rootLayout.setPadding(new Insets(20));
 
         Parse parser = new Parse();
@@ -47,7 +56,7 @@ public class GUI extends Application {
                         Platform.runLater(() -> {
                             resultArea.setText(scrapedText);
                             startButton.setDisable(false);
-                            saveButton.setDisable(false);
+                            saveLayout.setDisable(false);
                         });
                     })
                     .start();
@@ -55,9 +64,11 @@ public class GUI extends Application {
 
         saveButton.setOnAction(event -> {
             String textToSave = resultArea.getText();
-            String fileName = urlField.getText();
+            String fileName = nameSaveFile.getText();
 
             Save.saveFile(fileName, textToSave);
+
+            saveLayout.setDisable(true);
         });
 
         Scene scene = new Scene(rootLayout, 600, 400);
@@ -67,7 +78,5 @@ public class GUI extends Application {
         primaryStage.setTitle("JScrape GUI");
 
         primaryStage.show();
-
-        saveButton.setDisable(true);
     }
 }
