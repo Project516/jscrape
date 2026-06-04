@@ -1,5 +1,7 @@
 package dev.project516.jscrape;
 
+import static dev.project516.jscrape.utils.Flags.printHelp;
+
 import dev.project516.jscrape.screen.Launcher;
 import dev.project516.jscrape.utils.Parse;
 import java.util.Scanner;
@@ -33,7 +35,7 @@ public class Main {
         }
 
         if (args[0].equalsIgnoreCase("--help")) {
-            System.out.println("Available commands:\n--gui : Run app in GUI mode\n");
+            printHelp();
         } else if (args[0].equalsIgnoreCase("--gui")) {
             Launcher.launch();
         } else {
