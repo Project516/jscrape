@@ -24,6 +24,7 @@ public class GUI extends Application {
         TextArea resultArea = new TextArea();
         resultArea.setWrapText(true);
         resultArea.setEditable(false);
+        resultArea.setPromptText("Output will appear here");
 
         VBox rootLayout = new VBox(15);
 
