@@ -77,6 +77,9 @@ public class GUI extends Application {
 
         Scene scene = new Scene(rootLayout, 600, 400);
 
+        // scene.getStylesheets()
+        //        .add(Objects.requireNonNull(GUI.class.getResource("style.css")).toExternalForm());
+
         primaryStage.setScene(scene);
 
         primaryStage.setTitle("JScrape GUI");
