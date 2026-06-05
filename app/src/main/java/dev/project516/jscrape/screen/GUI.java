@@ -1,6 +1,7 @@
 package dev.project516.jscrape.screen;
 
 import dev.project516.jscrape.utils.*;
+import java.util.Objects;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -45,8 +46,10 @@ public class GUI extends Application {
 
         startButton.setOnAction(event -> {
             startButton.setDisable(true);
+
+            final String urlInput = urlField.getText();
             new Thread(() -> {
-                        String userInput = urlField.getText();
+                        String userInput = urlInput;
 
                         if (!userInput.startsWith("http")) {
                             userInput = "https://" + userInput;
@@ -64,21 +67,35 @@ public class GUI extends Application {
         });
 
         saveButton.setOnAction(event -> {
-            new Thread(() -> {
-                        String textToSave = resultArea.getText();
-                        String fileName = nameSaveFile.getText();
+            final String textToSave = resultArea.getText();
+            String tempFileName = nameSaveFile.getText();
 
-                        Save.saveFile(fileName, textToSave);
-                    })
-                    .start();
+            final String finalFileName;
+
+            if (tempFileName.isBlank()) {
+                finalFileName = "scraped_data.txt";
+            } else if (!tempFileName.endsWith(".txt")) {
+                finalFileName = tempFileName + ".txt";
+            } else {
+                finalFileName = tempFileName;
+            }
 
             saveLayout.setDisable(true);
+
+            new Thread(() -> {
+                        Save.saveFile(finalFileName, textToSave);
+
+                        Platform.runLater(() -> {
+                            saveLayout.setDisable(false);
+                        });
+                    })
+                    .start();
         });
 
         Scene scene = new Scene(rootLayout, 600, 400);
 
-        // scene.getStylesheets()
-        //        .add(Objects.requireNonNull(GUI.class.getResource("style.css")).toExternalForm());
+        scene.getStylesheets()
+                .add(Objects.requireNonNull(GUI.class.getResource("/style.css")).toExternalForm());
 
         primaryStage.setScene(scene);
 

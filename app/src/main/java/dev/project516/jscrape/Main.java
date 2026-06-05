@@ -60,13 +60,14 @@ public class Main {
         String scrapedText = parse.scrape(url);
 
         boolean shouldSave = false;
-        String fileName = "saves/" + url; // needs testing
+        String safeUrl = url.replaceAll("[^a-zA-Z0-9]", "_");
+        String fileName = safeUrl + ".txt";
 
         for (int i = 1; i < args.length; i++) {
             if (args[i].equalsIgnoreCase("--save")) {
                 shouldSave = true;
                 if (i + 1 < args.length && !args[++i].startsWith("-")) {
-                    fileName = args[i + 1];
+                    fileName = args[i];
                 }
                 break;
             }
