@@ -7,4 +7,5 @@ build
 # Ignore Kotlin plugin data
 .kotlin
 
+# ignore generated files
 *.txt

@@ -1,9 +1,21 @@
 .root {
-    -fx-background-color: #1e1e2e;
-    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #5a5a5a;
+  ]   -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.label {
-    -fx-text-fill: #A60A0AF0;
-    -fx-font-size: 14px;
+.text-field, .text-area {
+    -fx-background-color: #000000F0;
+    -fx-text-fill: #5a5a5a;
+    -fx-prompt-text-fill: #5a5a5a;
+
+    -fx-border-color: #000000F0;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+
+    -fx-padding: 8px
 }
+
+.text-area .content {
+    -fx-background-color: #ffffff;
+}
+
