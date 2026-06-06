@@ -9,7 +9,7 @@ public class Flags {
         System.out.println("    java -jar jscrape.jar --gui               Launch GUI application");
         System.out.println("    java -jar jscrape.jar --help              Show this help menu");
         System.out.println(
-                "    java -jar jscrape.jar --version           Show jscrape version"); // TODO: add version flag
+                "    java -jar jscrape.jar --version           Show jscrape version");
         System.out.println("    java -jar jscrape.jar <url>               Scrape the URL and print output to console");
         System.out.println("    java -jar jscrape.jar <url> --save        Scrape and auto-save");
         System.out.println("    java -jar jscrape.jar <url> --save <file> Scrape and save to a custom file location");
