@@ -4,4 +4,4 @@ plugins {
 }
 
 rootProject.name = 'jscrape'
-include('app')
+include('jscrape')
