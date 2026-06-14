@@ -4,7 +4,7 @@ A Java web scraper made with jsoup. GUI made with JavaFX.
 
 ## Setup
 
-You need Java 25 to run this. I recommend [Eclipse Temurin](https://adoptium.net/temurin).
+You need Java 25 to run this. I recommend [Eclipse Temurin](https://adoptium.net/temurin) or [SDKMAN](https://sdkman.io).
 
 #### Make sure Java is on your system path!!!
 
@@ -21,4 +21,4 @@ You need Java 25 to run this. I recommend [Eclipse Temurin](https://adoptium.net
 
 ## Misc
 
-The online JavaDoc can be found [here](https://project516.dev/jscrape/).
+The online Javadoc can be found [here](https://project516.dev/jscrape/).

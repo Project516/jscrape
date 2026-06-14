@@ -1,4 +1,4 @@
-# from https://gist.github.com/Project516/2eccafb22440aca4793fcae1efa6da94
+# adapted from https://gist.github.com/Project516/2eccafb22440aca4793fcae1efa6da94
 
 name: Generate javadoc and deploy to GitHub Pages
 
