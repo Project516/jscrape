@@ -101,7 +101,7 @@ public class GUI extends Application {
 
         primaryStage.setScene(scene);
 
-        primaryStage.setTitle("JScrape GUI");
+        primaryStage.setTitle("JScrape GUI " + Version.getVersion());
 
         primaryStage.show();
     }
