@@ -10,12 +10,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         Parse parse = new Parse();
 
         // cli interactive mode
         if (args.length == 0) {
+
+            printVersion();
             Scanner scan = new Scanner(System.in);
             while (true) {
 

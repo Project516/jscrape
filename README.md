@@ -1,6 +1,6 @@
 # jscrape
 
-A java web scraper made with jsoup. GUI made with JavaFX.
+A Java web scraper made with jsoup. GUI made with JavaFX.
 
 ## Setup
 
@@ -17,7 +17,7 @@ You need Java 25 to run this. I recommend [Eclipse Temurin](https://adoptium.net
 
 1. Clone this repository: `git clone https://github.com/Project516/jscrape.git`
 2. Run `./gradlew build` to build the project
-3. Run the project: `java -jar app/build/libs/app-all.jar `
+3. Run the project: `java -jar app/build/libs/app-all.jar`
 
 ## Misc
 

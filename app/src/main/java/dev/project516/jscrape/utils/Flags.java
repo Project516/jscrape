@@ -3,7 +3,7 @@ package dev.project516.jscrape.utils;
 public class Flags {
     // flag helper class
     public static void printHelp() {
-        System.out.println("jscrape: A web scraper writen in Java and powered by jsoup");
+        System.out.println("jscrape: A web scraper written in Java and powered by jsoup");
         System.out.println("Version 1.0.0\n");
         System.out.println("Usage:");
         System.out.println("    java -jar jscrape.jar                     Start interactive CLI mode");
@@ -16,6 +16,6 @@ public class Flags {
     }
 
     public static void printVersion() {
-        System.out.println("jscrape: Version 1.0.0\n");
+        System.out.println("jscrape " + Version.getVersion() + "\n");
     }
 }

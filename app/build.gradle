@@ -48,11 +48,14 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+version = '1.0.0'
+
 // Jar config
 jar {
     manifest {
         attributes(
-            'Main-Class': 'dev.project516.jscrape.Main'
+            'Main-Class': 'dev.project516.jscrape.Main',
+                'Implementation-Version': project.version
         )
     }
 }
