@@ -17,8 +17,8 @@ You need Java 25 to run this. I recommend [Eclipse Temurin](https://adoptium.net
 
 1. Clone this repository: `git clone https://github.com/Project516/jscrape.git`
 2. Run `./gradlew build` to build the project
-3. Run the project: `java -jar app/build/libs/app-all.jar`
+3. Run the project: `java -jar app/build/libs/app-1.0.0-all.jar`
 
 ## Misc
 
-The online Javadoc can be found [here](https://project516.dev/jscrape/).
+The online Javadoc can be found [here](https://project516.dev/jscrape).
