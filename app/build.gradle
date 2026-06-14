@@ -21,7 +21,7 @@ dependencies {
     // This dependency is used by the application.
     implementation libs.guava
 
-    // jsoup HTML parser library @ https://jsoup.org/
+    // jsoup HTML parser library
     implementation 'org.jsoup:jsoup:1.22.2'
 }
 

@@ -14,6 +14,7 @@ public class Main {
 
         Parse parse = new Parse();
 
+        // cli interactive mode
         if (args.length == 0) {
             Scanner scan = new Scanner(System.in);
             while (true) {
@@ -39,6 +40,7 @@ public class Main {
             return;
         }
 
+        // passing arguments
         String firstArg = args[0];
 
         if (args[0].equalsIgnoreCase("--help")) {

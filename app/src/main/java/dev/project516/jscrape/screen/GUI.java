@@ -44,6 +44,7 @@ public class GUI extends Application {
 
         Parse parser = new Parse();
 
+        // start scraper button
         startButton.setOnAction(event -> {
             startButton.setDisable(true);
 
@@ -66,6 +67,7 @@ public class GUI extends Application {
                     .start();
         });
 
+        // save scrape content
         saveButton.setOnAction(event -> {
             final String textToSave = resultArea.getText();
             String tempFileName = nameSaveFile.getText();

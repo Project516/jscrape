@@ -1,6 +1,7 @@
 package dev.project516.jscrape.utils;
 
 public class Flags {
+    // flag helper class
     public static void printHelp() {
         System.out.println("jscrape: A web scraper writen in Java and powered by jsoup");
         System.out.println("Version 1.0.0\n");
