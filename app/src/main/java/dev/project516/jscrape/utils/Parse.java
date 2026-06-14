@@ -7,7 +7,7 @@ public class Parse {
 
     public String scrape(String URL) {
 
-        String content = "";
+        String content;
 
         if (URL.isBlank() || URL.equals("https://") || URL.equals("https:// ")) {
             content = "Empty URL!";

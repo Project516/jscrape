@@ -1,7 +1,6 @@
 package dev.project516.jscrape.screen;
 
 import dev.project516.jscrape.utils.*;
-import java.util.Objects;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -15,7 +14,7 @@ import javafx.stage.Stage;
 
 public class GUI extends Application {
 
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         TextField urlField = new TextField();
         urlField.setPromptText("Enter website URL here...");
@@ -87,21 +86,16 @@ public class GUI extends Application {
             new Thread(() -> {
                         Save.saveFile(finalFileName, textToSave);
 
-                        Platform.runLater(() -> {
-                            saveLayout.setDisable(false);
-                        });
+                        Platform.runLater(() -> saveLayout.setDisable(false));
                     })
                     .start();
         });
 
         Scene scene = new Scene(rootLayout, 600, 400);
 
-        scene.getStylesheets()
-                .add(Objects.requireNonNull(GUI.class.getResource("/style.css")).toExternalForm());
-
         primaryStage.setScene(scene);
 
-        primaryStage.setTitle("JScrape GUI " + Version.getVersion());
+        primaryStage.setTitle("jscrape GUI " + Version.getVersion());
 
         primaryStage.show();
     }

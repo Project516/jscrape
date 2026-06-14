@@ -43,11 +43,6 @@ application {
     mainClass = 'dev.project516.jscrape.Main'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
-
 version = '1.0.0'
 
 // Jar config
