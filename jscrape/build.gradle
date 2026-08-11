@@ -22,7 +22,7 @@ dependencies {
     implementation libs.guava
 
     // jsoup HTML parser library
-    implementation 'org.jsoup:jsoup:1.22.2'
+    implementation 'org.jsoup:jsoup:1.23.1'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
