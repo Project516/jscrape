@@ -43,8 +43,6 @@ public class Main {
         }
 
         // passing arguments
-        String firstArg = args[0];
-
         if (args[0].equalsIgnoreCase("--help")) {
             printHelp();
             return;
@@ -56,7 +54,7 @@ public class Main {
             return;
         }
 
-        String url = firstArg;
+        String url = args[0];
         if (!url.startsWith("http")) {
             url = "https://" + url;
         }
