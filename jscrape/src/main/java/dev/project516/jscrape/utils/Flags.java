@@ -4,7 +4,7 @@ public class Flags {
     // flag helper class
     public static void printHelp() {
         System.out.println("jscrape: A web scraper written in Java and powered by jsoup");
-        System.out.println("Version 1.0.0\n");
+        System.out.println("Version " + Version.getVersion() + "\n");
         System.out.println("Usage:");
         System.out.println("    java -jar jscrape.jar                     Start interactive CLI mode");
         System.out.println("    java -jar jscrape.jar --gui               Launch GUI application");
